@@ -129,7 +129,6 @@ pydantic-core==2.33.2
 pydeck==0.9.1
 pydyf==0.11.0
 pygments==2.19.1
-pygraphviz==1.14
 pyparsing==3.2.3
 pyphen==0.17.2
 python-dateutil==2.9.0.post0
