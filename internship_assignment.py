@@ -5,9 +5,9 @@ import streamlit as st
 st.set_page_config(page_title="Analytical Report Chat", layout="wide")
 
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-_ = load_dotenv()
+# _ = load_dotenv()
 
 
 # In[169]:
@@ -44,16 +44,10 @@ class AgentState(TypedDict):
 
 # In[171]:
 
-
-# from langchain_openai import ChatOpenAI
-# model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-# from langchain_groq import ChatGroq
-# model = ChatGroq(model="llama3-8b-8192", temperature=0)
-# from langchain_google_genai.chat_models
 from langchain.chat_models import init_chat_model
 
-model = init_chat_model("gemini-2.5-flash-preview-04-17", model_provider="google_genai", temperature=0)
-model
+model = init_chat_model("gemini-2.5-flash-preview-04-17", model_provider="google_genai", temperature=0,
+                        api_key=st.secrets["GEMINI_API_KEY"])
 
 
 # In[172]:
@@ -177,7 +171,7 @@ class Queries(BaseModel):
 
 from tavily import TavilyClient
 import os
-tavily = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
+tavily = TavilyClient(api_key=st.secrets["TAVILY_API_KEY"])
 # tavily.search(query="whats the weather in NY", max_results=2)
 
 
